@@ -22,4 +22,4 @@ mkdir build && cd build && cmake .. && make
 
 ### Windows
 create path "build" and open terminal and write: 
-cmake ..
+cd build && cmake ..
