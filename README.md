@@ -21,5 +21,5 @@ download cmake https://github.com/Kitware/CMake/releases/download/v3.23.0-rc1/cm
 mkdir build && cd build && cmake .. && make
 
 ### Windows
-create path "build" and open terminal and write: 
-cd build && cmake ..
+open terminal and write: 
+mkdir build && cd build && cmake ..
