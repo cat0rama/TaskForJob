@@ -4,9 +4,7 @@
 #include "Window.hpp"
 #include "XMLParse.hpp"
 
-#include <memory>
-
-class Launcher final
+class Launcher 
 {
 public:
 	Launcher() = default;

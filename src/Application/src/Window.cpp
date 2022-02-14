@@ -60,14 +60,35 @@ void Window::Widgets() const noexcept //переопределили базовый метод виджетов чт
 {
 	ImGui::Begin("UNIVER");
 
-	if (ImGui::SliderFloat3("Change Background color", (float*)background, 0.0f, 1.0f, "color"))
+	if (ImGui::SliderFloat3("Change color", (float*)background, 0.0f, 1.0f, "color"))
 	{
-		LOG_INFO("Slider changed!");
+		LOG_INFO("Color slider changed! {0} {1} {2}", background[0], background[1], background[2]);
 	}
 
 	if (ImGui::Button("Test Button"))
 	{
 		LOG_INFO("Button clicked!");
+	}
+
+	std::vector<std::string> words = {"Univer", "Take", "Me", "To", "Job!"};
+	
+	static std::string current_item;
+
+	if (ImGui::BeginCombo("##combo", current_item.c_str()))
+	{
+		for (int i = 0; i < words.size(); i++) {
+			bool is_selected = (current_item == words[i]);
+			
+			if (ImGui::Selectable(words[i].c_str(), is_selected)) {
+				current_item = words[i];
+			}
+			
+			if (is_selected) {
+				ImGui::SetItemDefaultFocus();
+				LOG_INFO("You take the element!");
+			}
+		}
+		ImGui::EndCombo();
 	}
 }
 

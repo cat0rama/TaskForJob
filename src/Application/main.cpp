@@ -5,5 +5,5 @@ int main(int argc, char* argv[])
 {
 	const Launcher app;
 
-	return app.Start("TAKE TO WORK!", 600, 500);
+	return app.Start("TestWindow", 800, 800);
 }
