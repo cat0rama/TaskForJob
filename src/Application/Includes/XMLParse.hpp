@@ -13,10 +13,14 @@ public:
 	XmlParser();
 
 	~XmlParser() = default;
+private:
+	std::string GetStrFromChild(const XMLElement* _elem, const char* _child_name) const;
 public:
 	bool Initialize(const char* _file_path, std::vector<std::string> _basic_names);
 
-	std::string GetStrFromChild(const XMLElement* _elem, const char* _child_name) const;
+	std::string GetParameter(const char* _param_name) const;
+
+	void PrintParams() const;
 private:
 	std::vector<std::string> elem_names;
 	const char* file_path;

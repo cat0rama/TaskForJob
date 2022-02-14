@@ -1,19 +1,36 @@
 #include "Launcher.hpp"
+#include "Window.hpp"
 
-int Launcher::Start(const char* _title, const uint16_t _weigth, const uint16_t _heigth) const
+#include <Windows.h>
+
+bool Launcher::Init() 
 {
 	XmlParser args;
 
-	if (!args.Initialize("tst_2.xml", { "ShowConsole", "Heigth", "Weigth"})) {
+	if (!args.Initialize("settings.xml", { "ShowConsole", "Title", "Heigth", "Weigth" })) {
+		return false;
+	}
+
+	std::string title = args.GetParameter("Title"); //Получаем имя окна из файла settings.xml для примера
+
+	pWindow = std::make_unique<Window>(title.c_str(),
+		std::atoi(args.GetParameter("Heigth").c_str()), std::atoi(args.GetParameter("Weigth").c_str()));
+
+	if ((int)pWindow->InitWindow() <= 0) { 
+		return false; 
+	}
+
+	return true;
+}
+
+int Launcher::Start()
+{
+	if (!Init()) {
 		return -1;
 	}
 
-	Window pWindow(_title, _weigth, _heigth);
-
-	if ((int)pWindow.InitWindow() <= 0) { return -2; }
-
 	while (WindowOpen) {
-		pWindow.OnUpdate();
+		pWindow->OnUpdate();
 	}
 
 	return 0;

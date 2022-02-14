@@ -3,7 +3,7 @@
 
 int main(int argc, char* argv[])
 {
-	const Launcher app;
+	Launcher app;
 
-	return app.Start("TestWindow", 800, 800);
+	return app.Start();
 }
