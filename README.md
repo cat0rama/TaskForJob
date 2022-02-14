@@ -16,10 +16,11 @@ sudo apt-get install make
 sudo apt-get install cmake
 ## Windows
 download cmake https://github.com/Kitware/CMake/releases/download/v3.23.0-rc1/cmake-3.23.0-rc1-windows-x86_64.msi
-## Build
+## Build(on project path!)
 ### Linux
 mkdir build && cd build && cmake .. && make
 
 ### Windows
 open terminal and write: 
+
 mkdir build && cd build && cmake ..
