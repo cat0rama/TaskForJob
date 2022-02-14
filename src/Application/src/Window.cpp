@@ -2,10 +2,10 @@
 #include "Callback.hpp"
 
 Window::Window(const char* _title, const uint16_t _weigth, const uint16_t _heigth):
-title(_title), width(_weigth), heigth(_heigth), pWindow(nullptr)
+title(_title), width(_weigth), heigth(_heigth), pWindow(nullptr), Gui()
 {	}
 
-Window::Window(): title("TestWindow"), width(600), heigth(600), pWindow(nullptr)
+Window::Window(): title("TestWindow"), width(600), heigth(600), pWindow(nullptr), Gui()
 {	}
 
 Window::eWindowCode Window::InitWindow() noexcept
@@ -35,10 +35,13 @@ Window::eWindowCode Window::InitWindow() noexcept
 
 	CallbacksInit();
 
-	//gui_init
-
+	if ((int)GuiInit(pWindow) <= 0) {
+		LOG_CRITICAL("GUI INIT ERROR!");
+		return eWindowCode::GUI_INIT_ERROR;
+	}
+	
 	WindowOpen = true;
-	return eWindowCode::INIT_SUCCES;
+	return eWindowCode::SUCCES;
 }
 
 void Window::CallbacksInit() const noexcept
@@ -53,12 +56,27 @@ void Window::Shutdown() const noexcept
 	glfwTerminate();
 }
 
+void Window::Widgets() const noexcept //переопределили базовый метод виджетов чтобы задавать свои
+{
+	ImGui::Begin("UNIVER");
+
+	if (ImGui::SliderFloat3("Change Background color", (float*)background, 0.0f, 1.0f, "color"))
+	{
+		LOG_INFO("Slider changed!");
+	}
+
+	if (ImGui::Button("Test Button"))
+	{
+		LOG_INFO("Button clicked!");
+	}
+}
+
 void Window::OnUpdate() noexcept
 {
 	glClearColor(background[0], background[1], background[2], background[3]);
 	glClear(GL_COLOR_BUFFER_BIT);
 
-	//gui_update func
+	GuiUpdate();
 
 	glfwSwapBuffers(pWindow);
 	glfwPollEvents();

@@ -1,6 +1,6 @@
 #include "Launcher.hpp"
 
-int Launcher::Start(const char* _title, const uint16_t _weigth, const uint16_t _heigth)
+int Launcher::Start(const char* _title, const uint16_t _weigth, const uint16_t _heigth) const
 {
 	Window pWindow(_title, _weigth, _heigth);
 

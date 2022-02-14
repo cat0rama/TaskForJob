@@ -18,7 +18,6 @@ set(APPLICATION_SOURCES
 	Application/src/Launcher.cpp
 	Application/src/Window.cpp
 	Application/src/XMLParse.cpp
-	Application/src/Log.cpp
 	Application/src/Callback.cpp
 )
 

@@ -5,17 +5,18 @@
 #include <GLFW/glfw3.h>
 
 #include "Log.hpp"
+#include "Gui.hpp"
 
 inline bool WindowOpen = false;
 
-class Window
+class Window : public Gui 
 {
 public:
 	enum class eWindowCode
 	{
-		OPENGL_INIT_ERROR = -1, IMGUI_INIT_ERROR = -2,
+		OPENGL_INIT_ERROR = -1, GUI_INIT_ERROR = -2,
 		GLAD_INIT_ERROR = -3, GLFW_INIT_ERROR = -4,
-		GLFW_WINDOW_INIT_ERROR = -5, INIT_SUCCES = 1
+		GLFW_WINDOW_INIT_ERROR = -5, SUCCES = 1
 	};
 public:
 	explicit Window(const char* _title, const uint16_t _weigth, const uint16_t _heigth);
@@ -32,9 +33,11 @@ public:
 public:
 	eWindowCode InitWindow() noexcept;
 
+	void CallbacksInit() const noexcept;
+
 	void Shutdown() const noexcept;
 
-	void CallbacksInit() const noexcept;
+	void Widgets() const noexcept override;
 
 	void OnUpdate() noexcept;
 private:

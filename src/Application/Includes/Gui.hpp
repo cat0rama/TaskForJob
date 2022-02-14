@@ -8,17 +8,28 @@
 class Gui 
 {
 public:
+	enum class eGuiCode
+	{
+		GUI_OPENGL_INIT_ERROR = -1, 
+		GUI_GLFW_INIT_ERROR = -2, 
+		SUCCES = 1
+	};
+public:
 	Gui();
 
 	virtual ~Gui();
 public:
-	void Shutdown() const noexcept;
+	virtual eGuiCode GuiInit(GLFWwindow* _pWindow) noexcept;
 
-	void PreRender() const noexcept;
+	virtual void PreRender() const noexcept;
 
-	void PostRender() const noexcept;
-protected:
+	virtual void Widgets() const noexcept;
 
+	virtual void GuiUpdate() noexcept;
+
+	virtual void PostRender() const noexcept;
+
+	virtual void Shutdown() const noexcept;
 };
 
 #endif // !GUI_HPP_

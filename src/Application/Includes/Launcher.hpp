@@ -13,7 +13,7 @@ public:
 
 	~Launcher() = default;
 public:
-	int Start(const char* _title, const uint16_t _weigth, const uint16_t _heigth);
+	int Start(const char* _title, const uint16_t _weigth, const uint16_t _heigth) const;
 };
 
 #endif // !LAUNCHER_HPP_

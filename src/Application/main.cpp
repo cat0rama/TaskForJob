@@ -3,7 +3,7 @@
 
 int main(int argc, char* argv[])
 {
-	Launcher app;
+	const Launcher app;
 
-	app.Start("Retr0Wawe", 600, 500);
+	return app.Start("TAKE TO WORK!", 600, 500);
 }
