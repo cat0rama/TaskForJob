@@ -12,7 +12,11 @@ public:
 
 	virtual ~Gui();
 public:
+	void Shutdown() const noexcept;
 
+	void PreRender() const noexcept;
+
+	void PostRender() const noexcept;
 protected:
 
 };
