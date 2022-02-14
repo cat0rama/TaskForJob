@@ -1,8 +1,6 @@
 #include "Launcher.hpp"
 #include "Window.hpp"
 
-#include <Windows.h>
-
 bool Launcher::Init() 
 {
 	XmlParser args;
