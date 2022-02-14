@@ -7,3 +7,6 @@
 [submodule "vendor/imgui"]
 	path = vendor/imgui
 	url = https://github.com/ocornut/imgui
+[submodule "vendor/tinyxml2"]
+	path = vendor/tinyxml2
+	url = https://github.com/leethomason/tinyxml2

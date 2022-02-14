@@ -1,3 +1,5 @@
+build
+
 # Prerequisites
 *.d
 
@@ -30,6 +32,3 @@
 *.exe
 *.out
 *.app
-
-# Directories
-build
