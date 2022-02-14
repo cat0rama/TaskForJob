@@ -22,4 +22,5 @@ mkdir build && cd build && cmake .. && make
 
 ### Windows
 open terminal and write: 
+
 mkdir build && cd build && cmake ..
