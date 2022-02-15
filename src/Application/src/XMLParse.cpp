@@ -4,7 +4,7 @@
 XmlParser::XmlParser(): file_path(nullptr)
 {	}
 
-std::string XmlParser::GetStrFromChild(const XMLElement* _elem, const char* _child_name) const
+std::string XmlParser::GetStrFromChild(const tinyxml2::XMLElement* _elem, const char* _child_name) const
 {
 	auto str = _elem->FirstChildElement(_child_name)->GetText();
 
@@ -16,7 +16,7 @@ bool XmlParser::Initialize(const char* _file_path, std::vector<std::string> _bas
 	this->file_path = _file_path;
 	this->elem_names = std::move(_basic_names);
 	
-	if (doc.LoadFile(_file_path) != XML_SUCCESS) {
+	if (doc.LoadFile(_file_path) != tinyxml2::XML_SUCCESS) {
 		LOG_CRITICAL("SETTINGS FILE NOT LOADED!");
 		return false;
 	}

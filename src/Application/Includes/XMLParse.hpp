@@ -5,8 +5,6 @@
 #include <vector>
 #include <string>
 
-using namespace tinyxml2;
-
 class XmlParser
 {
 public:
@@ -14,7 +12,7 @@ public:
 
 	~XmlParser() = default;
 private:
-	std::string GetStrFromChild(const XMLElement* _elem, const char* _child_name) const;
+	std::string GetStrFromChild(const tinyxml2::XMLElement* _elem, const char* _child_name) const;
 public:
 	bool Initialize(const char* _file_path, std::vector<std::string> _basic_names);
 
@@ -23,8 +21,8 @@ public:
 	void PrintParams() const;
 private:
 	std::vector<std::string> elem_names;
+	tinyxml2::XMLDocument doc;
 	const char* file_path;
-	XMLDocument doc;
 };
 
 #endif // !XML_PARSER_HPP_

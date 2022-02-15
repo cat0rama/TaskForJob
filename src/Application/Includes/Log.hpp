@@ -2,7 +2,6 @@
 #define LOG_HPP_
 
 #include <spdlog/sinks/basic_file_sink.h>
-#include <memory>
 #include <spdlog/spdlog.h>
 
 inline std::shared_ptr<spdlog::logger> file_log = spdlog::basic_logger_mt("LOGGER", "log.txt");

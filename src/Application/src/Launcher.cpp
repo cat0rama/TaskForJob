@@ -1,6 +1,8 @@
 #include "Launcher.hpp"
 #include "Window.hpp"
 
+#include <windows.h>
+
 bool Launcher::Init() 
 {
 	XmlParser args;
@@ -9,7 +11,15 @@ bool Launcher::Init()
 		return false;
 	}
 
-	std::string title = args.GetParameter("Title"); //Получаем имя окна из файла settings.xml для примера
+#if defined(_WIN32) || defined(_WIN64) //if OS windows we try to hide console with WinApi function FreeConsole()
+	if (args.GetParameter("ShowConsole") == "true") {
+		if (!FreeConsole()) {
+			LOG_CRITICAL("Unable to hide console!");
+		}
+	}
+#endif
+
+	std::string title = args.GetParameter("Title"); //Get title form settings file
 
 	pWindow = std::make_unique<Window>(title.c_str(),
 		std::atoi(args.GetParameter("Heigth").c_str()), std::atoi(args.GetParameter("Weigth").c_str()));
@@ -24,6 +34,7 @@ bool Launcher::Init()
 int Launcher::Start()
 {
 	if (!Init()) {
+		getchar();
 		return -1;
 	}
 
