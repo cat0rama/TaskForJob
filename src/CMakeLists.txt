@@ -5,12 +5,12 @@ project(Application LANGUAGES CXX)
 set(CMAKE_CXX_STANDARD 17)
 
 set(APPLICATION_INCLUDES
-	Application/includes/Gui.hpp
-	Application/includes/Launcher.hpp
-	Application/includes/Window.hpp
-	Application/includes/XMLParse.hpp
-	Application/includes/Log.hpp
-	Application/includes/Callback.hpp
+	Application/include/Gui.hpp
+	Application/include/Launcher.hpp
+	Application/include/Window.hpp
+	Application/include/XMLParse.hpp
+	Application/include/Log.hpp
+	Application/include/Callback.hpp
 )
 
 set(APPLICATION_SOURCES
@@ -27,7 +27,7 @@ add_executable(${PROJECT_NAME}
 	Application/main.cpp
 )
 
-target_include_directories(${PROJECT_NAME} PRIVATE Application/includes)
+target_include_directories(${PROJECT_NAME} PRIVATE Application/include)
 
 target_link_libraries(${PROJECT_NAME} PRIVATE glfw)
 

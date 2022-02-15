@@ -73,3 +73,14 @@
 [2022-02-15 02:14:46.139] [LOGGER] [info] Window resized: 951 x 900
 [2022-02-15 02:14:46.143] [LOGGER] [info] Window resized: 952 x 900
 [2022-02-15 02:14:48.292] [LOGGER] [warning] Window closed!
+[2022-02-15 12:54:08.727] [LOGGER] [info] Button clicked!
+[2022-02-15 12:54:09.051] [LOGGER] [info] Button clicked!
+[2022-02-15 12:54:09.275] [LOGGER] [info] Button clicked!
+[2022-02-15 12:54:09.486] [LOGGER] [info] Button clicked!
+[2022-02-15 12:54:10.206] [LOGGER] [info] Color slider changed! 0.76404494 0 0
+[2022-02-15 12:54:10.776] [LOGGER] [info] Color slider changed! 0.76404494 0.04494382 0
+[2022-02-15 12:54:11.122] [LOGGER] [info] Color slider changed! 0.76404494 0.5955056 0
+[2022-02-15 12:54:11.618] [LOGGER] [info] Color slider changed! 0.76404494 1 0
+[2022-02-15 12:54:12.080] [LOGGER] [info] Color slider changed! 0.76404494 1 0.18681319
+[2022-02-15 12:54:13.994] [LOGGER] [info] Color slider changed! 0.76404494 1 0.83516484
+[2022-02-15 12:54:15.294] [LOGGER] [warning] Window closed!

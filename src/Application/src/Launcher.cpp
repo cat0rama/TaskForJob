@@ -1,7 +1,9 @@
 #include "Launcher.hpp"
 #include "Window.hpp"
 
+#if defined(_WIN32) || defined(_WIN64)
 #include <windows.h>
+#endif
 
 bool Launcher::Init() 
 {
