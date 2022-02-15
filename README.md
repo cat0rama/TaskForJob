@@ -24,3 +24,5 @@ mkdir build && cd build && cmake .. && make
 open terminal and write: 
 
 mkdir build && cd build && cmake ..
+# Architecture
+![Architecture](https://github.com/Retr0Wawe/TaskForUniver/blob/main/Architecture.png "Architecture")
