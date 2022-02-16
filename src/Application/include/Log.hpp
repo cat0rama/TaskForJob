@@ -4,6 +4,7 @@
 #include <spdlog/sinks/basic_file_sink.h>
 #include <spdlog/spdlog.h>
 
+//Logger object which write log
 inline std::shared_ptr<spdlog::logger> file_log = spdlog::basic_logger_mt("LOGGER", "log.txt");
 
 #define LOG_INFO(...)		spdlog::info(__VA_ARGS__);		file_log->info(__VA_ARGS__)

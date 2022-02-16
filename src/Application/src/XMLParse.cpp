@@ -37,7 +37,7 @@ std::string XmlParser::GetParameter(const char* _param_name) const
 	}
 }
 
-void XmlParser::PrintParams() const
+void XmlParser::PrintParams() const  //print all xml elements which handed over user in initialize procces 
 {
 	auto pRoot = doc.RootElement();
 

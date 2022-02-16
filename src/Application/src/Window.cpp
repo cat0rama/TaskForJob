@@ -9,7 +9,7 @@ title(_title), width(_weigth), heigth(_heigth), pWindow(nullptr), Gui()
 Window::Window(): title("TestWindow"), width(600), heigth(600), pWindow(nullptr), Gui()
 {	}
 
-Window::eWindowCode Window::InitWindow() noexcept
+Window::eWindowCode Window::InitWindow() noexcept //Create window, initialize gui library
 {	
 	LOG_DEBUG("Initialize window with: {0} x {1}", width, heigth);
 
@@ -53,13 +53,13 @@ void Window::CallbacksInit() const noexcept
 	glfwSetWindowSizeCallback(pWindow, callbacks::WindowSizeCallback);
 }
 
-void Window::Shutdown() const noexcept
+void Window::Shutdown() const noexcept //close window and terminate application
 {
 	glfwDestroyWindow(pWindow);
 	glfwTerminate();
 }
 
-void Window::Widgets() const noexcept //переопределили базовый метод виджетов чтобы задавать свои
+void Window::Widgets() const noexcept //overload widget method
 {
 	ImGui::Begin("UNIVER");
 
@@ -76,7 +76,7 @@ void Window::Widgets() const noexcept //переопределили базовый метод виджетов чт
 	std::vector<std::string> words = {"Univer", "Take", "Me", "To", "Job!"};
 	static std::string current_item;
 
-	if (ImGui::BeginCombo("##combo", current_item.c_str()))
+	if (ImGui::BeginCombo("##combo", current_item.c_str())) 
 	{
 		for (int i = 0; i < words.size(); i++) {
 			bool is_selected = (current_item == words[i]);
@@ -94,7 +94,7 @@ void Window::Widgets() const noexcept //переопределили базовый метод виджетов чт
 	}
 }
 
-void Window::OnUpdate() noexcept
+void Window::OnUpdate() noexcept //window render function
 {
 	glClearColor(background[0], background[1], background[2], background[3]);
 	glClear(GL_COLOR_BUFFER_BIT);

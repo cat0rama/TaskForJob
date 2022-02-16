@@ -11,7 +11,7 @@ inline bool WindowOpen = false;
 class Window : public Gui 
 {
 public:
-	enum class eWindowCode
+	enum class eWindowCode	//enum of possible errors
 	{
 		OPENGL_INIT_ERROR = -1, GUI_INIT_ERROR = -2,
 		GLAD_INIT_ERROR = -3, GLFW_INIT_ERROR = -4,
