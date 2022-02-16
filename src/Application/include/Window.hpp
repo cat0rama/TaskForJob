@@ -4,7 +4,6 @@
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 
-#include "Log.hpp"
 #include "Gui.hpp"
 
 inline bool WindowOpen = false;

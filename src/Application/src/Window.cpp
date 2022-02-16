@@ -1,5 +1,6 @@
 #include "Window.hpp"
 #include "Callback.hpp"
+#include "Log.hpp"
 
 Window::Window(const char* _title, const uint16_t _weigth, const uint16_t _heigth):
 title(_title), width(_weigth), heigth(_heigth), pWindow(nullptr), Gui()
@@ -40,6 +41,8 @@ Window::eWindowCode Window::InitWindow() noexcept
 		return eWindowCode::GUI_INIT_ERROR;
 	}
 	
+	glfwSwapInterval(1);
+
 	WindowOpen = true;
 	return eWindowCode::SUCCES;
 }
@@ -71,7 +74,6 @@ void Window::Widgets() const noexcept //переопределили базовый метод виджетов чт
 	}
 
 	std::vector<std::string> words = {"Univer", "Take", "Me", "To", "Job!"};
-	
 	static std::string current_item;
 
 	if (ImGui::BeginCombo("##combo", current_item.c_str()))

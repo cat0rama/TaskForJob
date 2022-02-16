@@ -1,5 +1,6 @@
 #include "Launcher.hpp"
 #include "Window.hpp"
+#include "Log.hpp"
 
 #if defined(_WIN32) || defined(_WIN64)
 #include <windows.h>
