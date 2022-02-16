@@ -3,7 +3,7 @@
 
 int main(int argc, char* argv[])
 {
-	Launcher app;
+	Launcher app;	//create application object
 
-	return app.Start();
+	return app.Start();	//start render loop
 }

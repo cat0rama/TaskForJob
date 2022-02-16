@@ -4,17 +4,17 @@
 XmlParser::XmlParser(): file_path(nullptr)
 {	}
 
-std::string XmlParser::GetStrFromChild(const tinyxml2::XMLElement* _elem, const char* _child_name) const
+std::string XmlParser::GetStrFromChild(const tinyxml2::XMLElement* _elem, const char* _child_name) const //get string from child parameter
 {
 	if (_elem != nullptr) {
-		auto str = _elem->FirstChildElement(_child_name)->GetText();
-		return str == NULL ? "Element " + std::string(_child_name) + " not found!" : str;
+		auto str = _elem->FirstChildElement(_child_name)->GetText();	//get child element from _elem
+		return str == NULL ? "Element " + std::string(_child_name) + " not found!" : str;	
 	} else {
 		return "Element is nullptr";
 	}
 }
 
-bool XmlParser::Initialize(const char* _file_path, std::vector<std::string> _basic_names)
+bool XmlParser::Initialize(const char* _file_path, std::vector<std::string> _basic_names)	//initialize lib
 {
 	this->file_path = _file_path;
 	this->elem_names = std::move(_basic_names);
@@ -26,7 +26,7 @@ bool XmlParser::Initialize(const char* _file_path, std::vector<std::string> _bas
 	return true;
 }
 
-std::string XmlParser::GetParameter(const char* _param_name) const
+std::string XmlParser::GetParameter(const char* _param_name) const	//get parameters from file which initialize in XmlParser::Initialize method
 {
 	auto pRoot = doc.RootElement();
 

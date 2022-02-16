@@ -1,7 +1,7 @@
 #include "Gui.hpp"
 #include "Log.hpp"
 
-Gui::Gui()
+Gui::Gui()	//ImGui checkversion
 {
 	IMGUI_CHECKVERSION();
 }
@@ -11,7 +11,7 @@ Gui::~Gui()
 	Shutdown();
 }
 
-Gui::eGuiCode Gui::GuiInit(GLFWwindow* _pWindow) noexcept
+Gui::eGuiCode Gui::GuiInit(GLFWwindow* _pWindow) noexcept	//ImGui lib init
 {
 	ImGui::CreateContext();
 	ImGuiIO& io = ImGui::GetIO();
@@ -29,19 +29,19 @@ Gui::eGuiCode Gui::GuiInit(GLFWwindow* _pWindow) noexcept
 	return eGuiCode::SUCCES;
 }
 
-void Gui::PreRender() const noexcept
+void Gui::PreRender() const noexcept  //ImGui pre render function
 {
 	ImGui_ImplOpenGL3_NewFrame();      
 	ImGui_ImplGlfw_NewFrame();          
 	ImGui::NewFrame();
 }
 
-void Gui::Widgets() const noexcept
+void Gui::Widgets() const noexcept  //Basic widgets if method not overload
 {
 	ImGui::Begin("TestWindow");
 }
 
-void Gui::GuiUpdate() noexcept
+void Gui::GuiUpdate() noexcept	//gui render loop
 {
 	PreRender();
 
@@ -50,14 +50,14 @@ void Gui::GuiUpdate() noexcept
 	PostRender();
 }
 
-void Gui::PostRender() const noexcept
+void Gui::PostRender() const noexcept //ImGui post render function
 {
 	ImGui::End();
 	ImGui::Render();
 	ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
 }
 
-void Gui::Shutdown() const noexcept
+void Gui::Shutdown() const noexcept	  //terminate Gui and Imgui context
 {
 	ImGui_ImplOpenGL3_Shutdown();
 	ImGui_ImplGlfw_Shutdown();
