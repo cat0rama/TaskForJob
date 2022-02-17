@@ -19,7 +19,7 @@ bool XmlParser::Initialize(const char* _file_path, std::vector<std::string> _bas
 	this->file_path = _file_path;
 	this->elem_names = std::move(_basic_names);
 	
-	if (doc.LoadFile(_file_path) != tinyxml2::XML_SUCCESS) {
+	if (doc.LoadFile(_file_path) != tinyxml2::XML_SUCCESS) {	//load file from path
 		LOG_CRITICAL("SETTINGS FILE NOT LOADED!");
 		return false;
 	}
@@ -39,15 +39,15 @@ std::string XmlParser::GetParameter(const char* _param_name) const	//get paramet
 
 void XmlParser::PrintParams() const  //print all xml elements which handed over user in initialize procces 
 {
-	auto pRoot = doc.RootElement();
+	auto pRoot = doc.RootElement();	//get Root element of file
 
 	if (pRoot != nullptr) {
-		auto pElems = doc.FirstChildElement();
+		auto pElems = doc.FirstChildElement();	//get first element of settings
 		while (pElems) {
 			for (const auto& elems : elem_names) {
-				LOG_INFO("{0} : {1}", elems, GetStrFromChild(pElems, elems.c_str()));
+				LOG_INFO("{0} : {1}", elems, GetStrFromChild(pElems, elems.c_str())); //print elements
 			}
-			pElems = pElems->NextSiblingElement();
+			pElems = pElems->NextSiblingElement(); //next element
 		}
 	} else {
 		LOG_CRITICAL("XML({0}) FILE NOT RECOGNIZED", file_path);

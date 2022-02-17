@@ -13,7 +13,7 @@ Window::eWindowCode Window::InitWindow() noexcept //Create window, initialize gu
 {	
 	LOG_DEBUG("Initialize window with: {0} x {1}", width, heigth);
 
-	if (!glfwInit()) {	//glfw lib initialize
+	if (!glfwInit()) {							//glfw lib initialize
 		LOG_CRITICAL("GLFW INITIALIZE ERROR!");
 		return eWindowCode::GLFW_INIT_ERROR;
 	}
@@ -55,8 +55,8 @@ void Window::CallbacksInit() const noexcept	//set glfw callbacks functions
 
 void Window::Shutdown() const noexcept //close window and terminate application
 {
-	glfwDestroyWindow(pWindow);
-	glfwTerminate();
+	glfwDestroyWindow(pWindow);		//terminate window
+	glfwTerminate();	//terminate glfw objects
 }
 
 void Window::Widgets() const noexcept //overload widget method with custom widgets
@@ -100,7 +100,7 @@ void Window::OnUpdate() noexcept //window render method
 	glClear(GL_COLOR_BUFFER_BIT);	//clear buffers
 
 	GuiUpdate();	//gui render
-
+	
 	glfwSwapBuffers(pWindow);  //vertical retrace synchronization
 	glfwPollEvents();	//click handler
 }

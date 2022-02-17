@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <settings>
-	<ShowConsole>true</ShowConsole>
-	<Title>Retr0Window</Title>
-	<Heigth>800</Heigth>
-	<Weigth>900</Weigth>
+	<ShowConsole>false</ShowConsole>
+	<Title>Window</Title>
+	<Heigth>600</Heigth>
+	<Weigth>500</Weigth>
 </settings>
